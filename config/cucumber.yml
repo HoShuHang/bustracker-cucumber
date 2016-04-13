@@ -1,0 +1,19 @@
+# encoding: utf-8
+<%
+SUT = {
+  :android_emu => {
+  :ip => "http://127.0.0.1:34777",
+  :device_taget => '',
+  :is_device => false
+  }
+}	
+html_report = "./reports/report.html"
+ss_path = "./screenshots/"
+curdir = File.expand_path(File.dirname(__FILE__))
+apk_path = File.join(curdir, 'app','bustracker.apk')
+%>
+html_report: --format html --out <%= html_report %>
+screenshot: SCREENSHOT_PATH=<%= ss_path %>
+common: -f pretty --tags ~@manual -p screenshot -p html_report
+emulator: -p common --tags @android PLATFORM=android
+android_emu: -p emulator
