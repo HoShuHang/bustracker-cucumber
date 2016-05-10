@@ -1,0 +1,1 @@
+calabash-android run app/bustracker.apk features/02_search.feature:33 -p android_emu
