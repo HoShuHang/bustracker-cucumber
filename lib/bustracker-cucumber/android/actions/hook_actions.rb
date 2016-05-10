@@ -25,7 +25,7 @@ module BusTracker::Android::Actions::HookActions
       clear_app_data
       shutdown_test_server
       start_test_server_in_background
-      @window.watch_screen.await(timeout: 60)
+      @window.main_screen.await(timeout: 60)
     end   
     # perform_action('hide_soft_keyboard')
   end

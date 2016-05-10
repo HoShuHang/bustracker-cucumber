@@ -2,6 +2,10 @@ module BusTracker::Android::Screens
   class MainScreen < BusTracker::Screens::BaseScreen
     def initialize(world, opts = {})
       super(world)
+      @search = "* id:'button_search'"
+      @nearby = "* id:'button_nearby'"
+      @direction = "* id:'button_directions'"
+      @favorite = "* id:'button_favorites'"
     end
 
     def await(wait_opts = {})
@@ -13,7 +17,26 @@ module BusTracker::Android::Screens
     end
 
     def traits
-      []
+      [@search,
+       @nearby,
+       @direction,
+       @favorite]
+    end
+
+    def routes
+      touch_w @search
+    end
+
+    def nearby
+      touch_w @nearby
+    end
+
+    def directions
+      touch_w @direction
+    end
+
+    def favorites
+      touch_w @favorite
     end
 
     # def select(text)

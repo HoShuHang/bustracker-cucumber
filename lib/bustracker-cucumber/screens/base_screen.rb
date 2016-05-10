@@ -28,6 +28,10 @@ module BusTracker::Screens
 
     protected
 
+    def touch_w(element)
+      world.touch_w element
+    end
+
     def window
       world.window
     end
