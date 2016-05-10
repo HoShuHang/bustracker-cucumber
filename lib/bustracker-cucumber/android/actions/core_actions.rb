@@ -14,7 +14,7 @@ module BusTracker::Android::Actions::CoreActions
   end
 
   def touch_w(element)
-    wait_for_elements_exist element
+    wait_for_element_exists element
     touch element
   end
 end

@@ -5,4 +5,8 @@ module BusTracker::Android::Actions::SearchActions
     @window.main_screen.routes
     @window.search_route_screen.await
   end
+
+  def search_bus(bus)
+    @window.search_route_screen.search bus
+  end
 end

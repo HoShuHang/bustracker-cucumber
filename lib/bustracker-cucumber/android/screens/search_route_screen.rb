@@ -2,6 +2,7 @@ module BusTracker::Android::Screens
   class SearchRouteScreen < BusTracker::Screens::BaseScreen
     def initialize(world, opts = {})
       super(world)
+      @keyboard = "* id:'keyboard_view0'"
     end
 
     def await(wait_opts = {})
@@ -13,7 +14,14 @@ module BusTracker::Android::Screens
     end
 
     def traits
-      []
+      [@keyboard]
+    end
+
+    def search(bus)
+      bus.each_char do |num|
+        btn = "* id:'keyboard_view0' descendant * {text LIKE '#{num}'}"
+        touch_w btn
+      end
     end
   end
 end
