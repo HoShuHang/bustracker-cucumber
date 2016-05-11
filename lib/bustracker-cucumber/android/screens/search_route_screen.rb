@@ -2,6 +2,7 @@ module BusTracker::Android::Screens
   class SearchRouteScreen < BusTracker::Screens::BaseScreen
     def initialize(world, opts = {})
       super(world)
+      @search = "* id:'menu_search_keyword'"
       @keyboard = "* id:'keyboard_view0'"
     end
 
@@ -14,7 +15,7 @@ module BusTracker::Android::Screens
     end
 
     def traits
-      [@keyboard]
+      [@keyboard, @search]
     end
 
     def search(bus)
@@ -22,6 +23,19 @@ module BusTracker::Android::Screens
         btn = "* id:'keyboard_view0' descendant * {text LIKE '#{num}'}"
         touch_w btn
       end
+      check_search_result 2 if bus == '299'
+    end
+
+    def click_search
+      touch_w @search
+    end
+
+    def check_search_result(count)
+      result = "* id:'list_view' descendant * id:'text_description'"
+      wait_for_elements_exist [result] if count > 0
+      wait_for_elements_do_not_exist [result] if count == 0
+      actual = query(result).count
+      fail "check search result: expect = #{count}, actual = #{actual}" if count != actual
     end
   end
 end
