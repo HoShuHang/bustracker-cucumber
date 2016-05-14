@@ -4,6 +4,7 @@ module BusTracker::Android::Screens
       super(world)
       @search = "* id:'menu_search_keyword'"
       @keyboard = "* id:'keyboard_view0'"
+      @result = "* id:'list_view' descendant * id:'text_description'"
     end
 
     def await(wait_opts = {})
@@ -31,11 +32,17 @@ module BusTracker::Android::Screens
     end
 
     def check_search_result(count)
-      result = "* id:'list_view' descendant * id:'text_description'"
-      wait_for_elements_exist [result] if count > 0
-      wait_for_elements_do_not_exist [result] if count == 0
-      actual = query(result).count
+      wait_for_elements_exist [@result] if count > 0
+      wait_for_elements_do_not_exist [@result] if count == 0
+      actual = query(@result).count
       fail "check search result: expect = #{count}, actual = #{actual}" if count != actual
+    end
+
+    def enter_search_result(count)
+      result = @result + "index:#{count}"
+      wait_for_elements_exist [result]
+      touch_w result
+      query("* id:'list_view' descendant * id:'text_name' index:#{count}", :text).first
     end
   end
 end

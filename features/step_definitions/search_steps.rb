@@ -15,6 +15,22 @@ Then /^我應該查不到任何\"([^\"]*)\"路線公車$/ do |bus|
 	check_search_result 0
 end
 
+When /^我進入路線公車頁面$/ do
+	enter_search_result 0
+end
+
+Then /^我應該可以看到([^\"]*)到站狀況$/ do |bus|
+	action("should_see_#{bus}_status")
+end
+
 Transform /^路線搜尋$/ do |test|
   'search_route'
+end
+
+Transform /^去程公車$/ do |bus|
+	'outbound_bus'
+end
+
+Transform /^回程公車$/ do |bus|
+	'inbound_bus'
 end
