@@ -77,9 +77,10 @@ Scenario: 重設路線搜尋
 	When 我搜尋"299"路線公車
 	Then 我應該可以重設路線搜尋
 
+@android
 Scenario: 更改搜尋路線
 	Given 我在路線搜尋頁面
-	When 我搜尋"299"路線公車
+	When 我藉由輸入搜尋"299"路線公車
 	Then 我應該可以更改搜尋路線
 
 Scenario: 查詢與該公車經過相同站牌的路線

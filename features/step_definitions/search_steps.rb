@@ -31,6 +31,10 @@ Then /^我應該可以重設路線搜尋$/ do
 	reset_search_route
 end
 
+Then /^我應該可以更改搜尋路線$/ do
+	modify_search_route
+end
+
 Then /^我應該可以取消輸入$/ do
 	cancel_input
 end

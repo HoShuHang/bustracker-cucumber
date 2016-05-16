@@ -34,4 +34,9 @@ module BusTracker::Android::Actions::SearchActions
   def reset_search_route
     @window.search_route_screen.reset_search_route
   end
+
+  def modify_search_route
+    @window.search_route_screen.delete_input_text
+    search_bus_by_type '0'
+  end
 end

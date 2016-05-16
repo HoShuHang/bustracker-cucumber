@@ -7,6 +7,8 @@ module BusTracker::Android::Screens
       @result = "* id:'list_view' descendant * id:'text_description'"
       @search_close = "* id:'search_close_btn'"
       @reset = "* id:'keyboard_view0' descendant * {text LIKE 'Reset'}"
+      @search_bar_text = "* id:'search_src_text'"
+      @delete = "* id:'keyboard_view0' descendant * {text LIKE 'DEL'}"
     end
 
     def await(wait_opts = {})
@@ -25,12 +27,16 @@ module BusTracker::Android::Screens
       if bus_type == '輸入'
         click_search
         keyboard_enter_text bus
+        wait_for_elements_exist [@search_bar_text]
+        fail 'input error' unless query(@search_bar_text, :text).first.include?(bus)
+        press_enter_button
       else
         bus.each_char do |num|
           btn = "* id:'keyboard_view0' descendant * {text LIKE '#{num}'}"
           touch_w btn
         end
       end
+      wait_for_elements_exist ["* id:'action_bar' descendant * {text CONTAINS '#{bus}'}"]
       check_search_result 2 if bus == '299'
     end
 
@@ -54,12 +60,22 @@ module BusTracker::Android::Screens
 
     def cancel_input
       touch_w @search_close
-      fail 'input text not delete' unless query("* id:'search_src_text'", :text).first.empty?
+      fail 'input text not delete' unless query(@search_bar_text, :text).first.empty?
     end
 
     def reset_search_route
       touch_w @reset
       check_search_result 0
+    end
+
+    def delete_input_text
+      wait_for_elements_exist ["* id:'action_bar' descendant *"]
+      fail 'search bar is empty' if query("* id:'action_bar' descendant *", :text).last.empty?
+      touch_w @delete
+      count = query("* id:'action_bar' descendant *", :text).count
+      a_bar_text = query("* id:'action_bar' descendant *", :text)[count-2]
+      a_bar_text_after_delete = query("* id:'action_bar' descendant *", :text)[count-1]
+      fail 'delete input text error' unless a_bar_text == a_bar_text_after_delete
     end
   end
 end
