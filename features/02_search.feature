@@ -71,6 +71,7 @@ Scenario: 離開路線搜尋頁面再重新進入必須重新搜尋
 	And 我再次進入路線搜尋頁面
 	Then 我應該看不到搜尋過的畫面
 
+@android
 Scenario: 重設路線搜尋
 	Given 我在路線搜尋頁面
 	When 我搜尋"299"路線公車

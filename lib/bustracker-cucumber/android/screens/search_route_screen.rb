@@ -6,6 +6,7 @@ module BusTracker::Android::Screens
       @keyboard = "* id:'keyboard_view0'"
       @result = "* id:'list_view' descendant * id:'text_description'"
       @search_close = "* id:'search_close_btn'"
+      @reset = "* id:'keyboard_view0' descendant * {text LIKE 'Reset'}"
     end
 
     def await(wait_opts = {})
@@ -52,9 +53,13 @@ module BusTracker::Android::Screens
     end
 
     def cancel_input
-      wait_for_elements_exist [@search_close]
       touch_w @search_close
       fail 'input text not delete' unless query("* id:'search_src_text'", :text).first.empty?
+    end
+
+    def reset_search_route
+      touch_w @reset
+      check_search_result 0
     end
   end
 end

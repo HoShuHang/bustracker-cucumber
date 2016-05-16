@@ -30,4 +30,8 @@ module BusTracker::Android::Actions::SearchActions
   def cancel_input
     @window.search_route_screen.cancel_input
   end
+
+  def reset_search_route
+    @window.search_route_screen.reset_search_route
+  end
 end
