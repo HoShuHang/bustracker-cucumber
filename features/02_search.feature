@@ -9,10 +9,11 @@ Feature: Search
 
 Background:
 
+@android
 Scenario Outline: 我藉由輸入/按鈕搜尋一台數字公車路線
 	Given 我在路線搜尋頁面
 	When 我藉由<方式>搜尋"299"路線公車
-	Then 我應該可以查到所有"299"路線公車
+	Then 我應該可以查到2筆"299"路線公車
 
 	Examples:
 	|方式|

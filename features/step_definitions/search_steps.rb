@@ -19,6 +19,10 @@ When /^我進入路線公車頁面$/ do
 	enter_search_result 0
 end
 
+Then /^我應該可以查到([^\"]*)筆\"([^\"]*)\"路線公車$/ do |count, bus|
+	check_search_result count.to_i
+end
+
 Then /^我應該可以看到([^\"]*)到站狀況$/ do |bus|
 	action("should_see_#{bus}_status")
 end
@@ -33,4 +37,8 @@ end
 
 Transform /^回程公車$/ do |bus|
 	'inbound_bus'
+end
+
+Transform /^藍$/ do |bus|
+	'BL'
 end
