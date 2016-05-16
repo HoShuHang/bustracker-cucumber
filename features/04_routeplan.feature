@@ -12,6 +12,7 @@ Feature: RoutePlan
 
 
 Background:
+
 Scenario: 我可以得到抵達時間
   Given 我在路線規劃頁面
   When 我可以輸入"台北科技大學"當作起點
@@ -89,7 +90,9 @@ Scenario Outline: 我可以得到以不同交通工具為偏好的方式所規�
 
   Examples:
   |偏好的交通工具|
-
+  |公車|
+  |捷運|
+  |火車|
 Scenario Outline: 我可以得到以不同路線為偏好的方式所規劃的路線
   Given 我在路線規劃頁面
   When 我可以輸入"台北科技大學"當作起點
@@ -102,3 +105,6 @@ Scenario Outline: 我可以得到以不同路線為偏好的方式所規劃的�
 
   Examples:
   |路線|
+  |最佳路線|
+  |轉乘次數較少|
+  |步行時間較短|
