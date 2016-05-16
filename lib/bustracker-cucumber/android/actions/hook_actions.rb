@@ -7,7 +7,7 @@ module BusTracker::Android::Actions::HookActions
     @scenario_is_outline =
       (scenario.class == Cucumber::Core::Ast::ScenarioOutline)
     scenario = scenario.scenario_outline if @scenario_is_outline
-    scenario.feature.title
+    scenario.feature
   end
 
   def current_feature?(feature_name)
