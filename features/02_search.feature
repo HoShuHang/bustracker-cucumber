@@ -58,6 +58,7 @@ Scenario Outline: 我藉由輸入/按鈕搜尋一台不存在的公車路線
 	|輸入|
 	|按鈕|
 
+@android
 Scenario: 輸入公車路線後取消輸入
 	Given 我在路線搜尋頁面
 	When 我藉由輸入搜尋"299"路線公車

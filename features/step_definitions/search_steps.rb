@@ -27,6 +27,10 @@ Then /^我應該可以看到([^\"]*)到站狀況$/ do |bus|
 	action("should_see_#{bus}_status")
 end
 
+Then /^我應該可以取消輸入$/ do
+	cancel_input
+end
+
 Transform /^路線搜尋$/ do |test|
   'search_route'
 end

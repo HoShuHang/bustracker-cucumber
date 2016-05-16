@@ -26,4 +26,8 @@ module BusTracker::Android::Actions::SearchActions
   def should_see_inbound_bus_status
     @window.realtime_bus_information_screen.should_see_inbound_bus_status
   end
+
+  def cancel_input
+    @window.search_route_screen.cancel_input
+  end
 end
