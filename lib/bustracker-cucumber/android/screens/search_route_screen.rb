@@ -19,10 +19,15 @@ module BusTracker::Android::Screens
       [@keyboard, @search]
     end
 
-    def search(bus)
-      bus.each_char do |num|
-        btn = "* id:'keyboard_view0' descendant * {text LIKE '#{num}'}"
-        touch_w btn
+    def search(bus, bus_type)
+      if bus_type == '輸入'
+        click_search
+        keyboard_enter_text bus
+      else
+        bus.each_char do |num|
+          btn = "* id:'keyboard_view0' descendant * {text LIKE '#{num}'}"
+          touch_w btn
+        end
       end
       check_search_result 2 if bus == '299'
     end

@@ -6,13 +6,8 @@ module BusTracker::Android::Actions::SearchActions
     @window.search_route_screen.await
   end
 
-  def search_bus(bus)
-    @window.search_route_screen.search bus
-  end
-
   def search_bus_by_type(bus, bus_type = '按鈕')
-    @window.search_route_screen.click_search if bus_type == '輸入'
-    @window.search_route_screen.search bus
+    @window.search_route_screen.search bus, bus_type
   end
 
   def check_search_result(count)

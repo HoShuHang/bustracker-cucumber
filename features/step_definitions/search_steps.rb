@@ -4,7 +4,7 @@ Given /^我在([^\"]*)頁面$/ do |screen_name|
 end
 
 When /^我搜尋\"([^\"]*)\"路線公車$/ do |bus|
-	search_bus bus
+	search_bus_by_type bus
 end
 
 When /^我藉由([^\"]*)搜尋\"([^\"]*)\"路線公車$/ do |input_type, bus|
