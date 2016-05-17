@@ -10,6 +10,10 @@ module BusTracker::Android::Actions::SearchActions
     @window.search_route_screen.search bus, bus_type
   end
 
+  def enter_in_search_bar(bus)
+    @window.search_route_screen.search bus, '輸入', { edit: true }
+  end
+
   def check_search_result(count)
     @window.search_route_screen.check_search_result count
   end

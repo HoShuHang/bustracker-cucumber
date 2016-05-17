@@ -23,13 +23,13 @@ module BusTracker::Android::Screens
       [@keyboard, @search]
     end
 
-    def search(bus, bus_type)
+    def search(bus, bus_type, opts={})
       if bus_type == '輸入'
         click_search
         keyboard_enter_text bus
         wait_for_elements_exist [@search_bar_text]
         fail 'input error' unless query(@search_bar_text, :text).first.include?(bus)
-        press_enter_button
+        press_enter_button unless opts[:edit]
       else
         bus.each_char do |num|
           btn = "* id:'keyboard_view0' descendant * {text LIKE '#{num}'}"

@@ -11,6 +11,10 @@ When /^我藉由([^\"]*)搜尋\"([^\"]*)\"路線公車$/ do |input_type, bus|
 	search_bus_by_type bus, input_type
 end
 
+When /^我輸入\"([^\"]*)\"路線公車$/ do |bus|
+	enter_in_search_bar bus
+end
+
 Then /^我應該查不到任何\"([^\"]*)\"路線公車$/ do |bus|
 	check_search_result 0
 end
