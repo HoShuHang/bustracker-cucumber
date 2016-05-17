@@ -8,12 +8,16 @@ SUT = {
   }
 }	
 html_report = "./reports/report.html"
+json_report = "./reports/json_report.json"
+junit_report = "./reports/junit_report"
 ss_path = "./screenshots/"
 curdir = File.expand_path(File.dirname(__FILE__))
 apk_path = File.join(curdir, 'app','bustracker.apk')
 %>
 html_report: --format html --out <%= html_report %>
+json_report: --format json --out <%= json_report %>
+junit_report: --format junit --out <%= junit_report %>
 screenshot: SCREENSHOT_PATH=<%= ss_path %>
-common: -f pretty --tags ~@manual -p screenshot -p html_report
+common: -f pretty --tags ~@manual -p screenshot -p html_report -p json_report -p junit_report
 emulator: -p common --tags @android PLATFORM=android
 android_emu: -p emulator
