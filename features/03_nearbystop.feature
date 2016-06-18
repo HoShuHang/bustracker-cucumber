@@ -8,14 +8,14 @@ Feature: NearbyStop
 
 Background:
 
+@android
 Scenario: 輸入地點搜尋附近站牌及公車情況
 	Given 我在附近站牌頁面
 	And 我進入查詢地名畫面
-	When 我輸入"台北科技大學"
-	Then 我應該可以觀看地點列表
+	Then 我應該可以查詢"台北科技大學"
 	When 我選擇"台北市大安區忠孝東路三段台北科技大學"
 	Then 我應該可以觀看公車站牌
-	When 我選擇"台北科技大學"
+	When 我選擇"National Taipei University of Technology"站
 	Then 我應該可以觀看公車情況
 
 Scenario: 輸入目的站牌搜尋原地點到此地點的公車
