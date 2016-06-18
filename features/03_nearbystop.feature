@@ -29,11 +29,12 @@ Scenario: 輸入目的站牌搜尋原地點到此地點的公車
 	When 我選擇"Zhengyi Post Office"當作目的站牌
 	Then 我應該可以觀看公車站牌
 
+@android
 Scenario: 輸入地點搜尋後取消輸入
 	Given 我在附近站牌頁面
 	And 我進入查詢地名畫面
-	When 我輸入"台北科技大學"
-	Then 我應該可以取消輸入
+	When 我應該可以查詢"台北科技大學"
+	Then 我應該可以取消查詢地名
 
 Scenario: 輸入地點搜尋後會產生歷史紀錄
 	Given 我在附近站牌頁面

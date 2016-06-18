@@ -28,5 +28,11 @@ module BusTracker::Android::Screens
     def select(location)
       touch_w "* {text CONTAINS '#{location}'}"
     end
+
+    def cancel_search
+      touch_w @edit_place
+      clear_text @edit_place
+      fail "clear text error" unless query(@edit_place, :text).first.empty?
+    end
   end
 end

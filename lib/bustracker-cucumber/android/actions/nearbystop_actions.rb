@@ -38,6 +38,10 @@ module BusTracker::Android::Actions::NearbystopActions
     should_see_bus_stop
   end
 
+  def cancel_search
+    @window.search_location_screen.await.cancel_search
+  end
+
   def should_see_bus_stop
     @window.nearbystop_screen.await.should_see_bus_stop
   end
