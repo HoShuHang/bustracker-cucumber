@@ -2,11 +2,12 @@ module BusTracker::Android::Screens
   class NearbystopScreen < BusTracker::Screens::BaseScreen
     def initialize(world, opts = {})
       super(world)
+      @fragment_place = "* id:'fragment_place'"
+      @menu_nearby_destination = "* id:'menu_nearby_destination'"
     end
 
     def await(wait_opts = {})
       super wait_opts
-      @fragment_place = "* id:'fragment_place'"
       self
     end
 
@@ -32,6 +33,10 @@ module BusTracker::Android::Screens
     def select_stop(stop)
       should_see_bus_stop
       touch_w "* {text CONTAINS '#{stop}'}"
+    end
+
+    def select_destination
+      touch_w @menu_nearby_destination
     end
   end
 end

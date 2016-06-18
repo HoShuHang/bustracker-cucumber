@@ -18,16 +18,16 @@ Scenario: 輸入地點搜尋附近站牌及公車情況
 	When 我選擇"National Taipei University of Technology"站
 	Then 我應該可以觀看公車情況
 
+@android
 Scenario: 輸入目的站牌搜尋原地點到此地點的公車
 	Given 我在附近站牌頁面
 	And 我進入查詢地名畫面
-	When 我輸入"台北科技大學"
+	Then 我應該可以查詢"台北科技大學"
 	And 我選擇"台北市大安區忠孝東路三段台北科技大學"
 	And 我進入選擇目的站牌畫面
-	And 我輸入"捷運善導寺"
+	Then 我應該可以輸入目的站牌"Zhengyi Post Office"
+	When 我選擇"Zhengyi Post Office"當作目的站牌
 	Then 我應該可以觀看公車站牌
-	When 我選擇"捷運善導寺站"
-	Then 我應該可以觀看公車情況
 
 Scenario: 輸入地點搜尋後取消輸入
 	Given 我在附近站牌頁面

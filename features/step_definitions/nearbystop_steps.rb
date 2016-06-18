@@ -23,6 +23,18 @@ Then /^我應該可以觀看公車情況$/ do
 	should_see_bus_status
 end
 
+When /^我進入選擇目的站牌畫面$/ do
+	enter_select_destination_screen
+end
+
+When /^我應該可以輸入目的站牌\"([^\"]*)\"$/ do |stop|
+	search_destination stop
+end
+
+When /^我選擇\"([^\"]*)\"當作目的站牌$/ do |stop|
+	select_destination stop
+end
+
 Transform /^附近站牌$/ do |bus|
 	'nearbystop'
 end

@@ -11,6 +11,15 @@ module BusTracker::Android::Actions::NearbystopActions
     @window.search_location_screen.await
   end
 
+  def enter_select_destination_screen
+    @window.nearbystop_screen.await.select_destination
+    @window.select_destination_screen.await
+  end
+
+  def search_destination(stop)
+    @window.select_destination_screen.await.search_destination stop
+  end
+
   def search_location(location)
     @window.search_location_screen.search location
   end
@@ -22,6 +31,11 @@ module BusTracker::Android::Actions::NearbystopActions
 
   def select_stop(stop)
     @window.nearbystop_screen.select_stop stop
+  end
+
+  def select_destination(stop)
+    @window.select_destination_screen.select_destination stop
+    should_see_bus_stop
   end
 
   def should_see_bus_stop
