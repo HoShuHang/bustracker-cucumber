@@ -55,11 +55,12 @@ Scenario: 我可以刪除地點搜尋的歷史紀錄
 	Then 我應該可以看到"台北市大安區忠孝東路三段台北科技大學"被加進歷史紀錄中
 	Then 我應該可以刪除歷史紀錄
 
+@android
 Scenario: 輸入站牌關鍵字後取消輸入
 	Given 我在附近站牌頁面
 	And 我進入選擇目的站牌畫面
-	When 我輸入"臺北科技大學"
-	Then 我應該可以取消輸入
+	When 我應該可以輸入目的站牌"Zhengyi Post Office"
+	Then 我應該可以取消輸入目的站牌
 
 Scenario: 輸入站牌關鍵字後會產生歷史紀錄
 	Given 我在附近站牌頁面

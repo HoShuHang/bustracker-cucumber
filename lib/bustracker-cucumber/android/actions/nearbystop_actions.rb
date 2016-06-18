@@ -42,6 +42,10 @@ module BusTracker::Android::Actions::NearbystopActions
     @window.search_location_screen.await.cancel_search
   end
 
+  def cancel_search_destination
+    @window.select_destination_screen.cancel_search_destination
+  end
+
   def delete_search_location_history
     @window.search_location_screen.await.delete_search_location_history
   end

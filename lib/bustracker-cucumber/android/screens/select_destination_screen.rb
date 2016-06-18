@@ -32,5 +32,11 @@ module BusTracker::Android::Screens
       wait_for_elements_exist [stop]
       touch_w stop
     end
+
+    def cancel_search_destination
+      touch_w @edit_stop
+      clear_text touch_w @edit_stop
+      fail "clear text error" unless query(@edit_stop, :text).first.empty?
+    end
   end
 end

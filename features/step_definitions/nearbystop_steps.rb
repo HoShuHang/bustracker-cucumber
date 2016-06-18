@@ -47,6 +47,10 @@ Then /^我應該可以刪除歷史紀錄$/ do
 	delete_search_location_history
 end
 
+Then /^我應該可以取消輸入目的站牌$/ do
+	cancel_search_destination
+end
+
 Transform /^附近站牌$/ do |bus|
 	'nearbystop'
 end
