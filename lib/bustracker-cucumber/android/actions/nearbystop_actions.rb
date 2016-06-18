@@ -61,4 +61,8 @@ module BusTracker::Android::Actions::NearbystopActions
   def should_see_location_in_search_location_history(location)
     @window.search_location_screen.should_see_location_in_search_location_history location
   end
+
+  def should_see_destination_in_select_destination_history(destination)
+    @window.select_destination_screen.should_see_destination_in_select_destination_history destination
+  end
 end

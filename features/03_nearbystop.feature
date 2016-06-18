@@ -62,14 +62,15 @@ Scenario: 輸入站牌關鍵字後取消輸入
 	When 我應該可以輸入目的站牌"Zhengyi Post Office"
 	Then 我應該可以取消輸入目的站牌
 
+@android
 Scenario: 輸入站牌關鍵字後會產生歷史紀錄
 	Given 我在附近站牌頁面
 	And 我進入選擇目的站牌畫面
-	When 我輸入"臺北科技大學"
-	And 我選擇"臺北科技大學"
+	When 我應該可以輸入目的站牌"Zhengyi Post Office"
+	And 我選擇"Zhengyi Post Office"當作目的站牌
 	And 我進入選擇目的站牌畫面
-	And 我取消輸入
-	Then 我應該可以看到"臺北科技大學"在歷史紀錄中
+	Then 我應該可以取消輸入目的站牌
+	And 我應該可以看到"Zhengyi Post Office"在目的站牌歷史紀錄中
 
 Scenario: 我可以刪除站牌關鍵字的歷史紀錄
 	Given 我在附近站牌頁面

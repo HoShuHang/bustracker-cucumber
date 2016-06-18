@@ -38,5 +38,10 @@ module BusTracker::Android::Screens
       clear_text touch_w @edit_stop
       fail "clear text error" unless query(@edit_stop, :text).first.empty?
     end
+
+    def should_see_destination_in_select_destination_history(destination)
+      history = @list_view+"descendant * {text CONTAINS #{destination}}"
+      wait_for_elements_exist [history]
+    end
   end
 end
