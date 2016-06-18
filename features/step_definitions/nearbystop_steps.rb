@@ -39,6 +39,10 @@ When /^我選擇\"([^\"]*)\"當作目的站牌$/ do |stop|
 	select_destination stop
 end
 
+Then /^我應該可以看到\"([^\"]*)\"被加進歷史紀錄中$/ do |location|
+	should_see_location_in_search_location_history location
+end
+
 Transform /^附近站牌$/ do |bus|
 	'nearbystop'
 end

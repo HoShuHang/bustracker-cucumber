@@ -49,4 +49,8 @@ module BusTracker::Android::Actions::NearbystopActions
   def should_see_bus_status
     @window.bus_status_screen.await
   end
+
+  def should_see_location_in_search_location_history(location)
+    @window.search_location_screen.should_see_location_in_search_location_history location
+  end
 end

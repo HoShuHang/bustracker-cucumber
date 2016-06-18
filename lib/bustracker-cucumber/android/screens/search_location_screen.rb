@@ -4,6 +4,7 @@ module BusTracker::Android::Screens
       super(world)
       @edit_place = "* id:'edit_place'"
       @search_button = "* id:'button_go'"
+      @list_view = "* id:'list_view'"
       self
     end
 
@@ -33,6 +34,12 @@ module BusTracker::Android::Screens
       touch_w @edit_place
       clear_text @edit_place
       fail "clear text error" unless query(@edit_place, :text).first.empty?
+    end
+
+    def should_see_location_in_search_location_history(location)
+      wait_for_elements_exist [@list_view]
+      history = @list_view << "descendant * {text CONTAINS #{location}}"
+      wait_for_elements_exist [history]
     end
   end
 end
