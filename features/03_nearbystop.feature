@@ -72,11 +72,16 @@ Scenario: 輸入站牌關鍵字後會產生歷史紀錄
 	Then 我應該可以取消輸入目的站牌
 	And 我應該可以看到"Zhengyi Post Office"在目的站牌歷史紀錄中
 
+@android
 Scenario: 我可以刪除站牌關鍵字的歷史紀錄
 	Given 我在附近站牌頁面
 	And 我進入選擇目的站牌畫面
-	When 我點擊歷史紀錄刪除鍵
-	Then 我應該可以看到歷史紀錄被刪除
+	When 我應該可以輸入目的站牌"Zhengyi Post Office"
+	And 我選擇"Zhengyi Post Office"當作目的站牌
+	And 我進入選擇目的站牌畫面
+	Then 我應該可以取消輸入目的站牌
+	And 我應該可以看到"Zhengyi Post Office"在目的站牌歷史紀錄中
+	And 我應該可以刪除目的站牌歷史紀錄
 
 Scenario: 我可以取消設定目的站牌
 	Given 我在附近站牌頁面
