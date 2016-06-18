@@ -36,10 +36,25 @@ module BusTracker::Android::Screens
       fail "clear text error" unless query(@edit_place, :text).first.empty?
     end
 
+    def delete_search_location_history
+      fail "list is empty, no item can delete" if list_view_count <= 0
+      history_count = list_view_count
+      delete = @list_view + " descendant * id:'image_button'"
+      touch_w delete
+      fail "not delete" if list_view_count != history_count - 1
+    end
+
     def should_see_location_in_search_location_history(location)
       wait_for_elements_exist [@list_view]
-      history = @list_view << "descendant * {text CONTAINS #{location}}"
+      history = @list_view+"descendant * {text CONTAINS #{location}}"
       wait_for_elements_exist [history]
+    end
+
+    private
+
+    def list_view_count
+      wait_for_elements_exist [@list_view]
+      query(@list_view, :count).first
     end
   end
 end
