@@ -55,6 +55,10 @@ Then /^我應該可以取消輸入目的站牌$/ do
 	cancel_search_destination
 end
 
+Then /^我應該可以不設站牌並返回$/ do
+	no_destination
+end
+
 Then /^我應該可以看到\"([^\"]*)\"在目的站牌歷史紀錄中$/ do |destination|
 	should_see_destination_in_select_destination_history destination
 end

@@ -4,6 +4,7 @@ module BusTracker::Android::Screens
       super(world)
       @edit_stop = "* id:'edit_stop'"
       @list_view = "* id:'list_view'"
+      @layout_reset = "* id:'layout_reset'"
     end
 
     def await(wait_opts = {})
@@ -50,6 +51,10 @@ module BusTracker::Android::Screens
       delete = @list_view + " descendant * id:'image_button'"
       touch_w delete
       fail "not delete" if list_view_count != history_count - 1
+    end
+
+    def no_destination
+      touch_w @layout_reset
     end
 
     private
