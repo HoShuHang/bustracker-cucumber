@@ -10,6 +10,7 @@ module BusTracker::Android::Screens
 
     def await(wait_opts = {})
       super wait_opts
+      self
     end
 
     def trait
