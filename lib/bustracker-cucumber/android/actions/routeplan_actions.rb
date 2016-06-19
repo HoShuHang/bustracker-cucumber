@@ -43,6 +43,10 @@ module BusTracker::Android::Actions::RouteplanActions
     @window.route_plan_screen.await
   end
 
+  def switch_from_to
+    @window.route_plan_screen.await.switch_from_to
+  end
+
   def plan_route
     @window.route_plan_screen.plan_route
   end

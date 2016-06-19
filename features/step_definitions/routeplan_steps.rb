@@ -55,6 +55,10 @@ When /^我可以選擇一條歷史紀錄當作終點$/ do
 	navigate_to_search_destination_screen
 end
 
+When /^我應該可以將起點與終點反轉$/ do
+	switch_from_to
+end
+
 Transform /^路線規劃$/ do |test|
   'route_plan'
 end

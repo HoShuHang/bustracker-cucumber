@@ -44,6 +44,15 @@ module BusTracker::Android::Screens
       touch_w "* id:'buttonPanel'"
     end
 
+    def switch_from_to
+      from = query("* id:'text_place'", :text)[0]
+      to = query("* id:'text_place'", :text)[1]
+      touch_w "* id:'image_switch'"
+      new_from = query("* id:'text_place'", :text)[0]
+      new_to = query("* id:'text_place'", :text)[1]
+      fail 'not switch' unless new_from == to && new_to == from
+    end
+
     private
 
     def should_see_result
