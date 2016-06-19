@@ -59,6 +59,10 @@ When /^我應該可以將起點與終點反轉$/ do
 	switch_from_to
 end
 
+Then /^我應該可以規劃出([^\"]*)路線$/ do |transport|
+	plan_transport transport
+end
+
 Transform /^路線規劃$/ do |test|
   'route_plan'
 end
