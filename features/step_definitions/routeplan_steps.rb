@@ -23,6 +23,14 @@ When /^我應該可以選擇\"([^\"]*)\"做為終點$/ do |to|
 	select_to to
 end
 
+Then /^我應該可以刪除起點歷史紀錄$/ do
+	delete_from_history
+end
+
+Then /^我應該可以刪除終點歷史紀錄$/ do
+	delete_to_history
+end
+
 Then /^我應該可以規劃至少一條路線$/ do
 	plan_route
 end

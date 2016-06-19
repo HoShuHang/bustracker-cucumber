@@ -31,5 +31,20 @@ module BusTracker::Android::Screens
       to = @list_view + " descendant * {text CONTAINS '#{to}'}"
       touch_w to
     end
+
+    def delete_to_history
+      fail "list is empty, no item can delete" if list_view_count <= 0
+      history_count = list_view_count
+      delete = @list_view + " descendant * id:'image_button'"
+      touch_w delete
+      fail "not delete" if list_view_count != history_count - 1
+    end
+
+    private
+
+    def list_view_count
+      wait_for_elements_exist [@list_view]
+      query(@list_view, :count).first
+    end
   end
 end

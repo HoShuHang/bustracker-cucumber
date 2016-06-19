@@ -30,6 +30,14 @@ module BusTracker::Android::Actions::RouteplanActions
     @window.search_destination_screen.enter_to to
   end
 
+  def delete_from_history
+    @window.search_start_location_screen.await.delete_from_history
+  end
+
+  def delete_to_history
+    @window.search_destination_screen.await.delete_to_history
+  end
+
   def select_to(to)
     @window.search_destination_screen.await.select_to to
     @window.route_plan_screen.await
