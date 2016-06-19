@@ -55,6 +55,10 @@ module BusTracker::Android::Actions::RouteplanActions
     @window.route_plan_screen.plan_transport [transport]
   end
 
+  def plan_routes(route)
+    @window.route_plan_screen.plan_routes [route]
+  end
+
   def plan_route_error
     @window.route_plan_screen.plan_route_error
   end

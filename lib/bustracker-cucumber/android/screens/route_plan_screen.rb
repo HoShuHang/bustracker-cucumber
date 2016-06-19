@@ -10,6 +10,9 @@ module BusTracker::Android::Screens
       @checkbox_bus = "* id:'checkbox_bus'"
       @checkbox_metro = "* id:'checkbox_metro'"
       @checkbox_train = "* id:'checkbox_train'"
+      @radio_best = "* id:'radio_best'"
+      @radio_fewer_transfer = "* id:'radio_fewer_transfer'"
+      @radio_less_walking = "* id:'radio_less_walking'"
     end
 
     def await(wait_opts = {})
@@ -61,23 +64,36 @@ module BusTracker::Android::Screens
     def plan_transport(transports)
       touch_w @button_options
       wait_for_elements_exist [@checkbox_bus, @checkbox_metro, @checkbox_train]
-      uncheck_transport(@checkbox_bus) unless transports.include?('公車')
-      uncheck_transport(@checkbox_metro) unless transports.include?('捷運')
-      uncheck_transport(@checkbox_train) unless transports.include?('火車')
-      check_transport(@checkbox_bus) if transports.include?('公車')
-      check_transport(@checkbox_metro) if transports.include?('捷運')
-      check_transport(@checkbox_train) if transports.include?('火車')
+      uncheck(@checkbox_bus) unless transports.include?('公車')
+      uncheck(@checkbox_metro) unless transports.include?('捷運')
+      uncheck(@checkbox_train) unless transports.include?('火車')
+      check(@checkbox_bus) if transports.include?('公車')
+      check(@checkbox_metro) if transports.include?('捷運')
+      check(@checkbox_train) if transports.include?('火車')
+      touch_w "* id:'button1'"
+      await
+    end
+
+    def plan_routes(routes)
+      touch_w @button_options
+      wait_for_elements_exist [@radio_best, @radio_less_walking, @radio_fewer_transfer]
+      uncheck(@radio_best) unless routes.include?('最佳路線')
+      uncheck(@radio_fewer_transfer) unless routes.include?('轉乘次數較少')
+      uncheck(@radio_less_walking) unless routes.include?('步行時間較短')
+      check(@radio_best) if routes.include?('最佳路線')
+      check(@radio_fewer_transfer) if routes.include?('轉乘次數較少')
+      check(@radio_less_walking) if routes.include?('步行時間較短')
       touch_w "* id:'button1'"
       await
     end
 
     private
 
-    def check_transport(checkbox)
+    def check(checkbox)
       touch_w checkbox unless query(checkbox, :checked).first
     end
 
-    def uncheck_transport(checkbox)
+    def uncheck(checkbox)
       touch_w checkbox if query(checkbox, :checked).first
     end
 

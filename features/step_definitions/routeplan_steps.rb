@@ -63,6 +63,10 @@ Then /^我應該可以規劃出([^\"]*)路線$/ do |transport|
 	plan_transport transport
 end
 
+Then /^我應該可以規劃一條([^\"]*)$/ do |route|
+	plan_routes(route)
+end
+
 Transform /^路線規劃$/ do |test|
   'route_plan'
 end
