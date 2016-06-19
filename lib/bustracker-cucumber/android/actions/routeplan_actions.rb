@@ -5,9 +5,19 @@ module BusTracker::Android::Actions::RouteplanActions
     @window.route_plan_screen.await
   end
 
-  def enter_from(from)
+  def navigate_to_search_start_location_screen
     @window.route_plan_screen.await.enter_from
-    @window.search_start_location_screen.await.enter_from from
+    @window.search_start_location_screen.await
+  end
+
+  def navigate_to_search_destination_screen
+    @window.route_plan_screen.await.enter_to
+    @window.search_destination_screen.await
+  end
+
+  def enter_from(from)
+    navigate_to_search_start_location_screen
+    @window.search_start_location_screen.enter_from from
   end
 
   def select_from(from)
@@ -16,8 +26,8 @@ module BusTracker::Android::Actions::RouteplanActions
   end
 
   def enter_to(to)
-    @window.route_plan_screen.await.enter_to
-    @window.search_destination_screen.await.enter_to to
+    navigate_to_search_destination_screen
+    @window.search_destination_screen.enter_to to
   end
 
   def select_to(to)
@@ -31,5 +41,9 @@ module BusTracker::Android::Actions::RouteplanActions
 
   def plan_route_error
     @window.route_plan_screen.plan_route_error
+  end
+
+  def set_plan_time(hr, min)
+    @window.route_plan_screen.set_plan_time(hr, min)
   end
 end

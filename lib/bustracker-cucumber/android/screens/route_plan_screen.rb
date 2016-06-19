@@ -38,6 +38,12 @@ module BusTracker::Android::Screens
       should_see_error
     end
 
+    def set_plan_time(hr, min)
+      touch_w "* id:'button_time'"
+      set_time("android.widget.TimePicker", hr.to_i, min.to_i)
+      touch_w "* id:'buttonPanel'"
+    end
+
     private
 
     def should_see_result
