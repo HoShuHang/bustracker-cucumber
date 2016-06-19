@@ -33,10 +33,20 @@ module BusTracker::Android::Screens
       should_see_result
     end
 
+    def plan_route_error
+      touch_w @search_button
+      should_see_error
+    end
+
     private
 
     def should_see_result
       wait_for_elements_exist ["* id:'text_title'"]
+    end
+
+    def should_see_error
+      err_msg = "* id:'message' descendant * {text LIKE 'No route could be found between the origin and destination.'}"
+      wait_for_elements_exist [err_msg]
     end
   end
 end

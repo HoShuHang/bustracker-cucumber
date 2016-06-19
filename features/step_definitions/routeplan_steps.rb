@@ -19,6 +19,10 @@ Then /^我應該可以規劃至少一條路線$/ do
 	plan_route
 end
 
+Then /^我應該無法規劃路線$/ do
+	plan_route_error
+end
+
 Transform /^路線規劃$/ do |test|
   'route_plan'
 end
