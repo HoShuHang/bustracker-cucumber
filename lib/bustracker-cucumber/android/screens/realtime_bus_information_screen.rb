@@ -59,6 +59,11 @@ module BusTracker::Android::Screens
       touch_w "* id:'text_view' descendant * {text LIKE 'Timetable'}"
     end
 
+    def search_all_pass_by(stop)
+      select_stop stop
+      touch_w "* id:'text_view' descendant * {text LIKE 'Routes via'}"
+    end
+
     private
 
     def query_tab

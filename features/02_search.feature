@@ -86,11 +86,12 @@ Scenario: 更改搜尋路線
 	When 我藉由輸入搜尋"299"路線公車
 	Then 我應該可以更改搜尋路線
 
+@android
 Scenario: 查詢與該公車經過相同站牌的路線
 	Given 我在路線搜尋頁面
 	When 我搜尋"299"路線公車
 	And 我進入路線公車頁面
-	Then 我應該可以查詢經過"台北科技大學(忠孝)"的所有路線
+	Then 我應該可以查詢經過"MRT Fu Jen University Sta."的所有路線
 
 Scenario: 顯示公車路線地圖
 	Given 我在路線搜尋頁面

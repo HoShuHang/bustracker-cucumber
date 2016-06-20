@@ -63,6 +63,10 @@ Then /^我應該看不到搜尋過的畫面$/ do
 	check_search_empty
 end
 
+Then /^我應該可以查詢經過\"([^\"]*)\"的所有路線$/ do |stop|
+	search_all_pass_by stop
+end
+
 Transform /^路線搜尋$/ do |test|
   'search_route'
 end

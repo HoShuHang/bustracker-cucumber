@@ -65,4 +65,9 @@ module BusTracker::Android::Actions::SearchActions
   def check_search_empty
     @window.search_route_screen.await.check_search_empty
   end
+
+  def search_all_pass_by(stop)
+    @window.realtime_bus_information_screen.await.search_all_pass_by stop
+    @window.bus_stop_screen.await
+  end
 end
