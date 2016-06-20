@@ -47,4 +47,18 @@ module BusTracker::Android::Actions::SearchActions
     @window.search_route_screen.delete_input_text
     search_bus_by_type '0'
   end
+
+  def watch_info
+    @window.realtime_bus_information_screen.await.watch_info
+    @window.route_info_screen.await
+  end
+
+  def from_route_info_screen_back_to_realtime_bus_information_screen
+    @window.route_info_screen.await.back
+  end
+
+  def select_watch_info
+    @window.realtime_bus_information_screen.select_watch_info
+    @window.route_info_screen.await
+  end
 end

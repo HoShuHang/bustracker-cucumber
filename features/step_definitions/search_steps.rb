@@ -47,6 +47,18 @@ When /^我選擇\"([^\"]*)\"站牌$/ do |stop|
 	select_stop stop
 end
 
+Then /^我應該可以觀看公車詳細資訊$/ do
+	watch_info
+end
+
+When /^我回到路線公車頁面$/ do
+	from_route_info_screen_back_to_realtime_bus_information_screen
+end
+
+Then /^我應該可以選擇觀看公車詳細資訊$/ do
+	select_watch_info
+end
+
 Transform /^路線搜尋$/ do |test|
   'search_route'
 end

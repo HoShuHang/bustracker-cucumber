@@ -35,6 +35,10 @@ module BusTracker::Android::Screens
       wait_for_elements_exist ["* id:'message' descendant * {text LIKE 'Favorite added.'}"]
     end
 
+    def watch_info
+      touch_w @menu_route_info
+    end
+
     def select_stop(stop)
       touch_w "* {text CONTAINS '#{stop}'}"
     end
@@ -49,6 +53,10 @@ module BusTracker::Android::Screens
       selected = query(@inbound, :selected).first
       touch_w @inbound unless selected
       fail "inbound bus status error" unless query(@inbound, :selected).first
+    end
+
+    def select_watch_info
+      touch_w "* id:'text_view' descendant * {text LIKE 'Timetable'}"
     end
 
     private

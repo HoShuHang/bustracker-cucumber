@@ -39,14 +39,15 @@ Scenario: 我可以查詢去回之目前公車到站狀況
 	Then 我應該可以看到去程公車到站狀況
 	And 我應該可以看到回程公車到站狀況
 
+@android
 Scenario: 我可以觀看公車詳細資訊
 	Given 我在路線搜尋頁面
 	When 我搜尋"299"路線公車
 	And 我進入路線公車頁面
 	Then 我應該可以觀看公車詳細資訊
 	When 我回到路線公車頁面
-	And 我選擇"台北科技大學(忠孝)"站牌
-	Then 我應該可以觀看公車詳細資訊
+	And 我選擇"MRT Fu Jen University Sta."站牌
+	Then 我應該可以選擇觀看公車詳細資訊
 
 @android
 Scenario Outline: 我藉由輸入/按鈕搜尋一台不存在的公車路線
