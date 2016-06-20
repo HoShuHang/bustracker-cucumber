@@ -16,4 +16,8 @@ module BusTracker::Android::Actions::FavoriteActions
   def switch_to_group(group)
     @window.favorites_screen.await.switch_to_group(group)
   end
+
+  def modify_group_name(group, name)
+    @window.favorites_screen.await.modify_group_name(group, name)
+  end
 end
