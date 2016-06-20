@@ -20,4 +20,8 @@ module BusTracker::Android::Actions::FavoriteActions
   def modify_group_name(group, name)
     @window.favorites_screen.await.modify_group_name(group, name)
   end
+
+  def move_to_first_priority(group)
+    @window.favorites_screen.await.move_to_first_priority group
+  end
 end

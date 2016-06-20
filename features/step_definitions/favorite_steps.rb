@@ -19,6 +19,10 @@ When /^我應該可以更名\"([^\"]*)\"站牌群組為\"([^\"]*)\"$/ do |group,
 	modify_group_name group, name
 end
 
+Then /^我應該可以把\"([^\"]*)\"站牌群組設成第一個站牌群組$/ do |group|
+	move_to_first_priority group
+end
+
 Transform /^常用站牌$/ do |bus|
 	'favorites'
 end

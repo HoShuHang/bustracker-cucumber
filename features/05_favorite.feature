@@ -41,10 +41,10 @@ Scenario: 我可以修改站牌群組名稱
 	Given 我在常用站牌頁面
 	Then 我應該可以更名"預設群組"站牌群組為"HOME"
 
+@android @have_group
 Scenario: 我可以排序站牌群組
 	Given 我在常用站牌頁面
-	When 我任何一個站牌群組
-	Then 我應該可以把"HOME"站牌群組設成第一個站牌群組
+	Then 我應該可以把"預設群組"站牌群組設成第一個站牌群組
 
 Scenario: 我可以排序常用站牌
 	Given 我在常用站牌頁面
