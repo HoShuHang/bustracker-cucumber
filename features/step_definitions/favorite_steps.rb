@@ -10,3 +10,11 @@ end
 Then /^我應該可以將該站牌的全部路線加入"預設群組"站牌群組$/ do
 	add_all_to_group
 end
+
+Then /^我應該可以切換到\"([^\"]*)\"站牌群組$/ do |group|
+	switch_to_group group
+end
+
+Transform /^常用站牌$/ do |bus|
+	'favorites'
+end

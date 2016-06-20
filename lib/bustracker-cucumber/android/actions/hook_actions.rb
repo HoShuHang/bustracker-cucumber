@@ -54,6 +54,19 @@ module BusTracker::Android::Actions::HookActions
     shutdown_test_server
   end
 
+  def have_group(scenario)
+    navigate_to_search_route_screen
+    search_bus_by_type '299'
+    enter_search_result 0
+    add_to_group "MRT Fu Jen University"
+    back_to_main_screen
+    navigate_to_search_route_screen
+    search_bus_by_type '299'
+    enter_search_result 0
+    add_to_group "MRT Fu Jen University", "北科大"
+    back_to_main_screen
+  end
+
   def install
     uninstall_apps
     install_app(ENV['TEST_APP_PATH'])

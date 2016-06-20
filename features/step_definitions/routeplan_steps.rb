@@ -43,10 +43,6 @@ When /^我可以輸入(\d+)時(\d+)分當作規劃時間$/ do |hr, min|
 	set_plan_time(hr, min)
 end
 
-When /^我可以輸入(\d+)時(\d+)分當作規劃時間$/ do |hr, min|
-	set_plan_time(hr, min)
-end
-
 When /^我可以選擇一條歷史紀錄當作起點$/ do
 	navigate_to_search_start_location_screen
 end

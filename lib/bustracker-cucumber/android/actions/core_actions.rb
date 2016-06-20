@@ -13,6 +13,12 @@ module BusTracker::Android::Actions::CoreActions
     @current_screens ||= {}
   end
 
+  def back_to_main_screen
+    until element_exists("* id:'action_bar_container' descendant * {text LIKE 'BusTracker Taipei'}") do
+      touch_w "* id:'action_bar_container' descendant * contentDescription:'Navigate up'"
+    end
+  end
+
   def touch_w(element)
     wait_for_element_exists element
     touch element

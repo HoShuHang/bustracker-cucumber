@@ -31,9 +31,9 @@ Scenario: 我可以將該站牌加入新的站牌群
 	When 我選擇"National Taipei U. of Technology"站
 	Then 我應該可以將該站牌的全部路線加入"預設群組"站牌群組
 
+@android @have_group
 Scenario: 我可以切換目前顯示的站牌群組
 	Given 我在常用站牌頁面
-	When 我不在"預設群組"站牌群組
 	Then 我應該可以切換到"預設群組"站牌群組
 
 Scenario: 我可以修改站牌群組名稱
