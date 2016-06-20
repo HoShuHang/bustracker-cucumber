@@ -40,6 +40,10 @@ module BusTracker::Android::Screens
       check_search_result 2 if bus == '299'
     end
 
+    def check_search_empty
+      wait_for_elements_do_not_exist ["* id:'list_view'"]
+    end
+
     def click_search
       touch_w @search
     end

@@ -59,6 +59,10 @@ Then /^我應該可以選擇觀看公車詳細資訊$/ do
 	select_watch_info
 end
 
+Then /^我應該看不到搜尋過的畫面$/ do
+	check_search_empty
+end
+
 Transform /^路線搜尋$/ do |test|
   'search_route'
 end

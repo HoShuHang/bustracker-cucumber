@@ -66,11 +66,12 @@ Scenario: 輸入公車路線後取消輸入
 	When 我輸入"299"路線公車
 	Then 我應該可以取消輸入
 
+@android
 Scenario: 離開路線搜尋頁面再重新進入必須重新搜尋
 	Given 我在路線搜尋頁面
 	When 我搜尋"299"路線公車
-	And 我回到台北等公車主畫面
-	And 我再次進入路線搜尋頁面
+	And 我回到首頁
+	And 我在路線搜尋頁面
 	Then 我應該看不到搜尋過的畫面
 
 @android

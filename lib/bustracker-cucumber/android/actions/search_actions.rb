@@ -61,4 +61,8 @@ module BusTracker::Android::Actions::SearchActions
     @window.realtime_bus_information_screen.select_watch_info
     @window.route_info_screen.await
   end
+
+  def check_search_empty
+    @window.search_route_screen.await.check_search_empty
+  end
 end
