@@ -12,7 +12,7 @@ When /^我選擇\"([^\"]*)\"$/ do |location|
 end
 
 When /^我選擇\"([^\"]*)\"站$/ do |stop|
-	select_stop stop
+	select_nearbystop stop
 end
 
 Then /^我應該可以觀看公車站牌$/ do

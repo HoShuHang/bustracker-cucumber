@@ -25,10 +25,11 @@ Scenario: 我可以加入常用站牌到新建的站牌群組
 	And 我進入路線公車頁面
 	Then 我應該可以加入"MRT Fu Jen University"站牌到"北科大"站牌群組
 
+@android
 Scenario: 我可以將該站牌加入新的站牌群
 	Given 我在附近站牌頁面
-	When 我選擇"仁愛敦化路口"站牌
-	Then 我應該可以將該站牌的全部路線加入新的站牌群組"仁愛敦化路口"
+	When 我選擇"National Taipei U. of Technology"站
+	Then 我應該可以將該站牌的全部路線加入"預設群組"站牌群組
 
 Scenario: 我可以切換目前顯示的站牌群組
 	Given 我在常用站牌頁面

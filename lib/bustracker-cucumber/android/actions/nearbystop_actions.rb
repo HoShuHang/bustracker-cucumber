@@ -29,7 +29,7 @@ module BusTracker::Android::Actions::NearbystopActions
     @window.nearbystop_screen.await
   end
 
-  def select_stop(stop)
+  def select_nearbystop(stop)
     @window.nearbystop_screen.select_stop stop
   end
 
