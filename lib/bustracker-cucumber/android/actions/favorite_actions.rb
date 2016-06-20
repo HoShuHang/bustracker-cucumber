@@ -28,4 +28,8 @@ module BusTracker::Android::Actions::FavoriteActions
   def delete_group(group)
     @window.favorites_screen.await.delete_group group
   end
+
+  def delete_favorite_stop(bus)
+    @window.favorites_screen.await.delete_favorite_stop bus
+  end
 end

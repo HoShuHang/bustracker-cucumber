@@ -48,6 +48,14 @@ module BusTracker::Android::Screens
       wait_for_elements_do_not_exist ["* id:'tabs' descendant * {text LIKE '#{group}'}"]
     end
 
+    def delete_favorite_stop(bus)
+      touch_w "* id:'text_routename' descendant * {text CONTAINS '#{bus}'}"
+      touch_w "* id:'text_view' descendant * {text LIKE 'Remove'}"
+      wait_for_elements_exist ["* id:'alertTitle' descendant * {text LIKE 'Remove favorite'}"]
+      touch_w "* id:'button1' descendant * {text LIKE 'Yes'}"
+      wait_for_elements_do_not_exist ["* id:'tabs'"]
+    end
+
     def more_options(title)
       touch_w "* id:'action_bar_container' descendant * contentDescription:'More options'"
       wait_for_elements_exist ["* id:'title'"]

@@ -27,6 +27,10 @@ Then /^我應該可以刪除\"([^\"]*)\"站牌群組$/ do |group|
 	delete_group group
 end
 
+Then /^我應該可以刪除\"([^\"]*)\"常用站牌$/ do |bus|
+	delete_favorite_stop bus
+end
+
 Transform /^常用站牌$/ do |bus|
 	'favorites'
 end
