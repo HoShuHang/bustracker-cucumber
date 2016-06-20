@@ -43,6 +43,10 @@ Then /^我應該可以取消輸入$/ do
 	cancel_input
 end
 
+When /^我選擇\"([^\"]*)\"站牌$/ do |stop|
+	select_stop stop
+end
+
 Transform /^路線搜尋$/ do |test|
   'search_route'
 end

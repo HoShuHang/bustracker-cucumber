@@ -11,10 +11,12 @@ Feature: Favorite
 
 Background:
 
+@android
 Scenario: 我可以加入常用站牌
-	Given 我在"299"路線公車頁面
-	When 我選擇"頂好市場"站牌
-	Then 我應該可以加入站牌到"預設群組"站牌群組
+	Given 我在路線搜尋頁面
+	When 我搜尋"299"路線公車
+	And 我進入路線公車頁面
+	Then 我應該可以加入"MRT Fu Jen University"站牌到"預設群組"站牌群組
 
 Scenario: 我可以加入常用站牌到新建的站牌群組
 	Given 我在"299"路線公車頁面

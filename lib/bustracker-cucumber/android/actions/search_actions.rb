@@ -23,6 +23,10 @@ module BusTracker::Android::Actions::SearchActions
     @window.realtime_bus_information_screen.await(bus: bus)
   end
 
+  def select_stop(stop)
+    @window.realtime_bus_information_screen.await.select_stop(stop)
+  end
+
   def should_see_outbound_bus_status
     @window.realtime_bus_information_screen.should_see_outbound_bus_status
   end

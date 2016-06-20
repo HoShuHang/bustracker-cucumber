@@ -23,6 +23,17 @@ module BusTracker::Android::Screens
       [@tabs, @outbound, @inbound, @menu_route_map, @menu_route_info, @menu_route_nearby]
     end
 
+    def add_to_group_to_default(stop)
+      select_stop stop
+      touch_w "* id:'text_view' descendant * {text LIKE 'Add'}"
+      touch_w "* id:'text_view' descendant {text LIKE '預設群組'}"
+      wait_for_elements_exist ["* id:'message' descendant * {text LIKE 'Favorite added.'}"]
+    end
+
+    def select_stop(stop)
+      touch_w "* {text CONTAINS '#{stop}'}"
+    end
+
     def should_see_outbound_bus_status
       selected = query(@outbound, :selected).first
       touch_w @outbound unless selected
