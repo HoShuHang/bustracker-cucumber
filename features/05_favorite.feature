@@ -18,10 +18,12 @@ Scenario: 我可以加入常用站牌
 	And 我進入路線公車頁面
 	Then 我應該可以加入"MRT Fu Jen University"站牌到"預設群組"站牌群組
 
+@android
 Scenario: 我可以加入常用站牌到新建的站牌群組
-	Given 我在"299"路線公車頁面
-	When 我選擇"臺北科技大學(忠孝)"站牌
-	Then 我應該可以加入到新的站牌群組"北科大"
+	Given 我在路線搜尋頁面
+	When 我搜尋"299"路線公車
+	And 我進入路線公車頁面
+	Then 我應該可以加入"MRT Fu Jen University"站牌到"北科大"站牌群組
 
 Scenario: 我可以將該站牌加入新的站牌群
 	Given 我在附近站牌頁面

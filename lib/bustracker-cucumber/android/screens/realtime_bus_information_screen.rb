@@ -23,10 +23,15 @@ module BusTracker::Android::Screens
       [@tabs, @outbound, @inbound, @menu_route_map, @menu_route_info, @menu_route_nearby]
     end
 
-    def add_to_group_to_default(stop)
+    def add_to_group(stop, group)
       select_stop stop
       touch_w "* id:'text_view' descendant * {text LIKE 'Add'}"
-      touch_w "* id:'text_view' descendant {text LIKE '預設群組'}"
+      touch_w "* id:'text_view' descendant {text LIKE '預設群組'}" unless group
+      if group
+        touch_w "* id:'edit_group'"
+        keyboard_enter_text group
+        touch_w "* id:'button1' descendant * {text LIKE 'Submit'}"
+      end
       wait_for_elements_exist ["* id:'message' descendant * {text LIKE 'Favorite added.'}"]
     end
 
