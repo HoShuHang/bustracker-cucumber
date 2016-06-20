@@ -20,10 +20,11 @@ Scenario Outline: 我藉由輸入/按鈕搜尋一台數字公車路線
 	|輸入|
 	|按鈕|
 
+@android
 Scenario Outline: 我藉由輸入/按鈕搜尋一台文字公車路線
 	Given 我在路線搜尋頁面
-	When 我藉由<方式>搜尋"藍1"路線公車
-	Then 我應該可以查到所有"藍1"路線公車
+	When 我藉由<方式>搜尋"R1"路線公車
+	Then 我應該可以查到3筆"R1"路線公車
 
 	Examples:
 	|方式|
