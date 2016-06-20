@@ -40,11 +40,19 @@ module BusTracker::Android::Screens
       fail "drag error" unless query("* id:'text_title'", :text).index(group) == 0
     end
 
+    def delete_group(group)
+      switch_to_group group
+      more_options 'Remove group'
+      wait_for_elements_exist ["* id:'alertTitle' descendant * {text LIKE '#{group}'}"]
+      touch_w "* id:'button1' descendant * {text LIKE 'Submit'}"
+      wait_for_elements_do_not_exist ["* id:'tabs' descendant * {text LIKE '#{group}'}"]
+    end
+
     def more_options(title)
       touch_w "* id:'action_bar_container' descendant * contentDescription:'More options'"
       wait_for_elements_exist ["* id:'title'"]
       touch_w "* id:'title' descendant * {text LIKE '#{title}'}" 
-      wait_for_elements_exist ["* id:'alertTitle' descendant * {text LIKE '#{title}'}"]
+      wait_for_elements_exist ["* id:'alertTitle' descendant * {text LIKE '#{title}'}"] if title != 'Remove group'
     end
   end
 end

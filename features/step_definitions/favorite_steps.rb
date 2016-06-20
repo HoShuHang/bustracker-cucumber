@@ -23,6 +23,10 @@ Then /^我應該可以把\"([^\"]*)\"站牌群組設成第一個站牌群組$/ d
 	move_to_first_priority group
 end
 
+Then /^我應該可以刪除\"([^\"]*)\"站牌群組$/ do |group|
+	delete_group group
+end
+
 Transform /^常用站牌$/ do |bus|
 	'favorites'
 end

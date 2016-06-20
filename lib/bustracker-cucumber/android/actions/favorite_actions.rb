@@ -24,4 +24,8 @@ module BusTracker::Android::Actions::FavoriteActions
   def move_to_first_priority(group)
     @window.favorites_screen.await.move_to_first_priority group
   end
+
+  def delete_group(group)
+    @window.favorites_screen.await.delete_group group
+  end
 end

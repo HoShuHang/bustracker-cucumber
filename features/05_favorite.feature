@@ -51,10 +51,11 @@ Scenario: 我可以排序常用站牌
 	When 我切換到"仁愛敦化路口"站牌群組
 	Then 我應該可以把"275"設成該站牌群組的第一個常用站牌
 
+@android @have_group
 Scenario: 我可以刪除不常用到的站牌群組
 	Given 我在常用站牌頁面
-	When 我切換到"HOME"站牌群組
-	Then 我應該可以刪除"HOME"站牌群組
+	When 我應該可以切換到"預設群組"站牌群組
+	Then 我應該可以刪除"預設群組"站牌群組
 
 Scenario: 我可以刪除不常用到的常用站牌
 	Given 我在常用站牌頁面
