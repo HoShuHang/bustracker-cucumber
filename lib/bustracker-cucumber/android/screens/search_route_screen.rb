@@ -48,6 +48,10 @@ module BusTracker::Android::Screens
       touch_w @search
     end
 
+    def check_search_route_result(bus)
+      wait_for_elements_exist ["* id:'action_bar' descendant * {text CONTAINS '#{bus}'}"]
+    end
+
     def check_search_result(count)
       wait_for_elements_exist [@result] if count > 0
       wait_for_elements_do_not_exist [@result] if count == 0

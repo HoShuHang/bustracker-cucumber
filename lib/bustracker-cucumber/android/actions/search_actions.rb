@@ -53,6 +53,10 @@ module BusTracker::Android::Actions::SearchActions
     @window.route_info_screen.await
   end
 
+  def set_get_on_alarm
+    @window.realtime_bus_information_screen.set_get_on_alarm
+  end
+
   def from_route_info_screen_back_to_realtime_bus_information_screen
     @window.route_info_screen.await.back
   end
@@ -69,5 +73,14 @@ module BusTracker::Android::Actions::SearchActions
   def search_all_pass_by(stop)
     @window.realtime_bus_information_screen.await.search_all_pass_by stop
     @window.bus_stop_screen.await
+  end
+
+  def watch_bus_map
+    @window.realtime_bus_information_screen.watch_bus_map
+    @window.bus_map_screen.await
+  end
+
+  def check_search_route_result(bus)
+    @window.search_route_screen.check_search_route_result(bus)
   end
 end

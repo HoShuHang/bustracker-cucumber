@@ -37,7 +37,9 @@ module BusTracker::Android::Screens
       more_options 'Reorder groups'
       index = query("* id:'text_title'", :text).index(group)
       drag_and_drop("* id:'drag_handle' index:#{index}", "* id:'drag_handle' index:0")
-      fail "drag error" unless query("* id:'text_title'", :text).index(group) == 0
+      wait_for(:timeout => 30) do
+        query("* id:'text_title'", :text).index(group) == 0
+      end
     end
 
     def delete_group(group)

@@ -80,7 +80,7 @@ Scenario: 重設路線搜尋
 	When 我搜尋"299"路線公車
 	Then 我應該可以重設路線搜尋
 
-@android
+@android @demo
 Scenario: 更改搜尋路線
 	Given 我在路線搜尋頁面
 	When 我藉由輸入搜尋"299"路線公車
@@ -93,6 +93,7 @@ Scenario: 查詢與該公車經過相同站牌的路線
 	And 我進入路線公車頁面
 	Then 我應該可以查詢經過"MRT Fu Jen University Sta."的所有路線
 
+@android
 Scenario: 顯示公車路線地圖
 	Given 我在路線搜尋頁面
 	When 我搜尋"299"路線公車
@@ -102,24 +103,28 @@ Scenario: 顯示公車路線地圖
 Scenario: 到站報時
 	Given 我在路線搜尋頁面
 	When 我搜尋"299"路線公車
-	And 我選擇"台北科技大學(忠孝)"站牌
+	And 我進入路線公車頁面
+	And 我選擇"MRT Fu Jen University Sta."站牌
 	Then 我應該可以設定到站報時
 
+@android
 Scenario: 上車提醒
 	Given 我在路線搜尋頁面
 	When 我搜尋"299"路線公車
-	And 我選擇"台北科技大學(忠孝)"站牌
+	And 我進入路線公車頁面
+	And 我選擇"MRT Fu Jen University Sta."站牌
 	Then 我應該可以設定上車提醒
 
+@android
 Scenario: 先藉由輸入再藉由按鈕搜尋公車路線
 	Given 我在路線搜尋頁面
 	When 我藉由輸入搜尋"2"路線公車
 	And 我藉由按鈕搜尋"99"路線公車
 	Then 我應該可以查到所有"99"路線公車
 
-@bug
+@bug @android @demo
 Scenario: 先藉由按鈕再藉由輸入搜尋公車路線
 	Given 我在路線搜尋頁面
 	When 我藉由按鈕搜尋"2"路線公車
 	And 我藉由輸入搜尋"99"路線公車
-	Then 我應該可以查到所有"99"路線公車
+	Then 我應該可以查到所有"299"路線公車

@@ -67,6 +67,18 @@ Then /^我應該可以查詢經過\"([^\"]*)\"的所有路線$/ do |stop|
 	search_all_pass_by stop
 end
 
+Then /^我應該可以查看公車路線地圖$/ do
+	watch_bus_map
+end
+
+Then /^我應該可以查到所有\"([^\"]*)\"路線公車$/ do |bus|
+	check_search_route_result bus
+end
+
+Then /^我應該可以設定上車提醒$/ do
+	set_get_on_alarm
+end
+
 Transform /^路線搜尋$/ do |test|
   'search_route'
 end

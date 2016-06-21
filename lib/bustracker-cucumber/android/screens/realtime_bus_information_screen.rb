@@ -64,6 +64,15 @@ module BusTracker::Android::Screens
       touch_w "* id:'text_view' descendant * {text LIKE 'Routes via'}"
     end
 
+    def watch_bus_map
+      touch_w @menu_route_map
+    end
+
+    def set_get_on_alarm
+      touch_w "* id:'text_view' descendant * {text LIKE 'Get-On alarm'}"
+      touch_w "* id:'text1' descendant * {text LIKE '5 minutes'}"
+    end
+
     private
 
     def query_tab
